@@ -1,4 +1,4 @@
-% Tandem Rotor Helicopters Performance Analysis
+% Tandem Rotors Helicopters Performance Analysis
 % 
 % Author: Reza Samarghandi 
 % 
