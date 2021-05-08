@@ -47,7 +47,7 @@ vtip=r*omega; %Main Rotor Blade Tip Speed (ft/s)
 a=pi*r^2; %Area of The Main Rotor (ft^2)
 sigma=nb*chord/(pi*r); %Solidity of The Main Rotor 
 w=m*g; %Weight of The Helicopter (lb*ft/s^2)
-cw=w/(rho*a*vtip^2); %Coefficient of Weight
+cw=w/2/(rho*a*vtip^2); %Coefficient of Weight
 
 shp=17696; %hp to (lb*ft^2/s^3) 
 Pc=w*velc; %Climb Power (lb*ft^2/s^3)
