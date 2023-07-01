@@ -45,7 +45,7 @@ kov=1+(sqrt(2)-1)*mp; %Induced Power Factor Due To Rotors Overlap
 omega=rpm*2*pi/60; %Main Rotor Rotational Speed (rad/s)
 vtip=r*omega; %Main Rotor Blade Tip Speed (ft/s)
 a=pi*r^2; %Area of The Main Rotor (ft^2)
-sigma=nb*chord/(pi*r); %Solidity of The Main Rotor 
+sigma=nb*chord/(2*pi*r); %Solidity of The Main Rotor 
 w=m*g; %Weight of The Helicopter (lb*ft/s^2)
 cw=w/2/(rho*a*vtip^2); %Coefficient of Weight
 
@@ -95,28 +95,32 @@ ld(j)=w*v/P; %L/D Of The Helicopter
 radius(j)=v^2/(sqrt(n^2-1)*g); %Turn Radius For specific Load Factor
 
 
+hpis(j)=hpi;
+hp0s(j)=hp0;
+hpps(j)=hpp;
+hps(j)=hp;
+hpavs(j)=hpav;
 
-
-plot(velocity(j),hpi,'g.','DisplayName','Induced Power')
+end
+figure()
+plot(velocity,hpis,'g','DisplayName','Induced Power')
 hold on
 
-plot(velocity(j),hp0,'b.','DisplayName','Profile Power')
+plot(velocity,hp0s,'b','DisplayName','Profile Power')
 hold on
 
-plot(velocity(j),hpp,'c.','DisplayName','Parasite Power')
+plot(velocity,hpps,'c','DisplayName','Parasite Power')
 hold on
 
-plot(velocity(j),hp,'m.','DisplayName','Total Power')
+plot(velocity,hps,'m','DisplayName','Total Power')
 hold on
 
-plot(velocity(j),hpav,'k.','DisplayName','Available Power')
+plot(velocity,hpavs,'k','DisplayName','Available Power')
 hold on
 title('Power Curve')
 xlabel('True Airspeed (kts)')
 ylabel('Power (hp)')
 legend('show')
-end
-
 
 figure
 plot(velocity,descend,'c.')
